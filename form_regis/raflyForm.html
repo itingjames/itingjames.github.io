@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/1610082ff9.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Rafly Mauladi</title>
+  </head>
+  <body onload="focus_name()">
+    <div class="auten">
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-7 col-lg-5">
+            <div class="card">
+              <div class="text-center">
+                <a href="https://ercons.id" class="h1"
+                  ><b>Collab</b> Research</a
+                >
+                <hr />
+              </div>
+              <div class="card-body">
+                <div class="mt-2 mb-2"></div>
+                <p class="login-box-msg text-center">Daftar Akun</p>
+                <form onsubmit="return cek_pass();">
+                  <!-- Nama -->
+                  <div class="input-group mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Nama Lengkap"
+                      name="nama"
+                      id="name"
+                    />
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-user"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Email -->
+                  <div class="input-group mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Email"
+                      name="email"
+                      id="email"
+                    />
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-envelope"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Password -->
+                  <div class="input-group mb-3">
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder="Password"
+                      name="password"
+                      id="password"
+                    />
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-lock"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Retype Password -->
+                  <div class="input-group mb-3">
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder="Retype password"
+                      name="retype"
+                      id="retype_password"
+                    />
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-lock"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <span id="message" style="color: red"></span>
+                  <div class="form-group my-4">
+                    <button type="submit" class="btn btn-primary form-control">
+                      Daftar
+                    </button>
+                    <a href="login.html" class="text-center"
+                      >Saya sudah punya akun</a
+                    >
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <!-- JavaScript -->
+    <script>
+      function focus_name() {
+        document.getElementById("name").focus();
+      }
+
+      function cek_pass() {
+        var password = document.getElementById("password").value;
+        var retype_password = document.getElementById("retype_password").value;
+        var nama = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+
+        if (nama == "") {
+          document.getElementById("message").innerHTML = "Nama Masih Kosong!";
+          return false;
+        }
+
+        if (email == "") {
+          document.getElementById("message").innerHTML = "Email Masih Kosong!";
+          return false;
+        }
+
+        if (password == "") {
+          document.getElementById("message").innerHTML =
+            "Password masih kosong";
+          return false;
+        }
+
+        if (password.length < 8) {
+          document.getElementById("message").innerHTML =
+            "Password Kurang dari 8 karakter";
+          return false;
+        }
+
+        if (password != retype_password) {
+          document.getElementById("message").innerHTML =
+            "Password tidak sesuai";
+          return false;
+        }
+      }
+
+      var inputname = document.getElementById("name");
+      var inputemail = document.getElementById("email");
+      var inputpassword = document.getElementById("password");
+      inputname.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+          event.preventDefault(true);
+          document.getElementById("email").focus();
+        }
+      });
+
+      inputemail.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+          event.preventDefault();
+          document.getElementById("password").focus();
+        }
+      });
+
+      inputpassword.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+          event.preventDefault();
+          document.getElementById("retype_password").focus();
+        }
+      });
+    </script>
+  </body>
+</html>
